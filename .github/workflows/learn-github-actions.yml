@@ -1,0 +1,16 @@
+name: Learn GitHub Actions
+
+run-name: My first workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run a test command
+        run: echo "Hello GitHub Actions"
