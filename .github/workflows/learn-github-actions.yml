@@ -1,13 +1,16 @@
-nom : learn-github-actions 
-nom-exécution : ${{ github.actor }} apprend GitHub Actions 
-sur : [push] 
-tâches : 
-  check-bats-version : 
-    s'exécute sur : ubuntu-latest 
-    étapes : 
-      - utilise : actions/checkout@v5 
-      - utilise : actions/setup-node@v4 
-        avec : 
-          node-version : '20' 
-      - exécuter : npm install -g bats 
-      - exécuter : bats -v
+name: Learn GitHub Actions
+
+run-name: My first workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run a test command
+        run: echo "Hello GitHub Actions"
